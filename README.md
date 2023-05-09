@@ -12,8 +12,8 @@ This repository contains 2 scripts:
     - `secretKey`: Secret key used in the request to the lambda via `x-origin-secret-header` header
     - `logTiming`: Boolean, whether you want to log the time to process the request
 - Create an IAM policy called `image-optimization-lambda-policy` with the following permission:
-    - `PutObject` to transformed image bucket
-    - `GetObject` from original image bucket
-- The lambda function requires the following policies:
+    - Allow `s3:PutObject` action to transformed image bucket
+    - Allow `s3:GetObject` action to original image bucket
+- The lambda function role should consist of only the following policies:
     - `image-optimization-lambda-policy`
     - `AWSLambdaBasicExecutionRole` (AWS-managed policies)
